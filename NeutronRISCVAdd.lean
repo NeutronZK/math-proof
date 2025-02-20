@@ -30,6 +30,17 @@ lemma bool_constraint (x: F p) (heq: x * (x - 1) = 0): (x = 0 ∨ x = 1) := by {
   | inr h1 => right; exact (eq_of_sub_eq_zero h1)
 }
 
+lemma add_modulus_val (x: F p) (h: x.val < m): (x + m).val = x.val + m := by {
+  have h_sum: x.val + m < p :=
+    calc
+      x.val + m < m + m := by omega
+              _ = 2 * m := by ring
+              _ < p     := by exact h_p_m.1
+  rw [ZMod.val_add x m]
+  simp
+  exact Nat.mod_eq_of_lt h_sum
+}
+
 /-- Handles modulo arithmetic for values between m and 2m -/
 lemma mod_between_m_2m (x: ℕ) (h1: x ≥ m) (h2: x < 2 * m): x % m = x - m := by {
   rw [Nat.mod_eq_sub_mod]
@@ -92,10 +103,30 @@ theorem AddALU
         rw [h_ov_1] at h_eq
         simp at h_eq
         exfalso
-
-        have h_eq2: (x + y).val = z.val + m := by
-          calc  _ = (z + m).val := by simp [← h_eq]
-                _ = z.val + (m: F p).val := by rw [split_val]; sorry
-                _ = z.val + m := by sorry
-        sorry
-    case neg => sorry
+        have h_eq_1: x.val + y.val = z.val + m := by
+          calc x.val + y.val = (x + y).val := by rw [split_val]; omega
+                          _  = (z + m).val := by simp [← h_eq]
+                          _  = z.val + m := by rw [add_modulus_val]; omega
+        omega
+    case neg =>
+      rw [Nat.not_lt] at h1
+      have ht: (x.val + y.val) % m = x.val + y.val - m := by rw [mod_between_m_2m]; exact h1; exact h_2m
+      rw [ht]
+      rw [hz]
+      match h_ov_bool with
+      | Or.inl h_ov_0 =>
+        rw [h_ov_0] at h_eq
+        simp at h_eq
+        exfalso
+        have h_eq2: x.val + y.val = z.val :=
+          calc x.val + y.val = (x + y).val := by rw [split_val]; omega
+                          _  = z.val := by exact congrArg ZMod.val h_eq
+        omega
+      | Or.inr h_ov_1 =>
+        rw [h_ov_1] at h_eq
+        simp at h_eq
+        calc x.val + y.val - m = (x + y).val - m := by rw [split_val]; omega
+                            _  = (x + y - m + m).val - m := by aesop
+                            _ = (z + m).val - m := by rw [h_eq]
+                            _ = z.val + m - m := by rw [add_modulus_val]; omega
+                            _ = z.val := by omega

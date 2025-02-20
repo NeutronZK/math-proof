@@ -9,7 +9,9 @@ package «lean4-example» {
 }
 
 @[default_target]
-lean_lib «NeutronRISCV» {
+lean_lib «NeutronRISCVAdd» {
+}
+lean_lib «NeutronRISCVBitDecomposition» {
 }
 lean_lib «Lean4Example» {
 }
