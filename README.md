@@ -1,21 +1,15 @@
-lean4-example
--------------
+# Neutron RISC-V Math Proof Lean4 POC
 
-An example of using [Lean Copilot](https://github.com/lean-dojo/LeanCopilot) in your project.
+Read [README](./README.old.md) to start building.
 
+## See also
+### Theorem Prover LLM
+- [lean-dojo](https://github.com/lean-dojo/LeanCopilot?tab=readme-ov-file)
+- [goedel-prover](https://goedel-lm.github.io/)
+- [deepseek-prover](https://github.com/deepseek-ai/DeepSeek-Prover-V1.5)
 
-## Requirements
-* Supported platforms: Linux, macOS, and [Windows WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
-* [elan](https://github.com/leanprover/elan)
+### Lean4 for STARK/SNARK
+- https://github.com/risc0/risc0-lean4
+- https://github.com/Verified-zkEVM/clean
+- https://github.com/Verified-zkEVM/ZKLib
 
-
-## Steps
-
-```bash
-lake exe LeanCopilot/download
-lake build
-```
-
-
-## Questions and Bugs
-Please report in the [LeanCopilot](https://github.com/lean-dojo/LeanCopilot) repo.

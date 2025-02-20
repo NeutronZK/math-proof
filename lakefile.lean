@@ -9,7 +9,13 @@ package «lean4-example» {
 }
 
 @[default_target]
+lean_lib «NeutronRISCV» {
+}
 lean_lib «Lean4Example» {
 }
 
 require LeanCopilot from git "https://github.com/lean-dojo/LeanCopilot.git" @ "v4.16.0"
+
+require mathlib from git "https://github.com/leanprover-community/mathlib4.git" @ "v4.16.0"
+
+require aesop from git "https://github.com/leanprover-community/aesop" @ "v4.16.0"
