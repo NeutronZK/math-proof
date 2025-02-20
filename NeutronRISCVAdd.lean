@@ -1,6 +1,7 @@
 import LeanCopilot
 import Mathlib.Data.ZMod.Basic
 import Aesop
+import Paperproof
 
 /- Borrowed from cLean -/
 def F (p : ℕ) := ZMod p

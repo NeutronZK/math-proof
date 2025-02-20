@@ -2,6 +2,10 @@
 
 Read [README](./README.old.md) to start building.
 
+- Install vscode extensions: [Lean4](https://github.com/leanprover/vscode-lean4) and [PaperProof](https://github.com/Paper-Proof/paperproof)
+
+- [Optional] Use Goedel prover and Deepseek prover as Lean copilot LLM provider. See [here](https://github.com/Sun-Jc/LeanCopilot/tree/main/python).
+
 ## See also
 ### Theorem Prover LLM
 - [lean-dojo](https://github.com/lean-dojo/LeanCopilot?tab=readme-ov-file)

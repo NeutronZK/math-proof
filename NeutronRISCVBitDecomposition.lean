@@ -1,8 +1,21 @@
 import LeanCopilot
 import Mathlib.Data.ZMod.Basic
 import Aesop
+import Paperproof
 
-import Mathlib.Data.ZMod.Basic
+open LeanCopilot
+
+def gpt4 : ExternalGenerator := {
+  name := "gpt4"
+  host := "localhost"
+  port := 23337
+}
+
+-- #eval generate gpt4 "2 n is even"
+
+#leansearch "If a natural number n is less than m, then the successor of n is less than the successor of m."
+
+#moogle "If a natural number n is less than m, then the successor of n is less than the successor of m."
 
 /-
 # Finite Field Implementation and Bit Decomposition
