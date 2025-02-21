@@ -11,6 +11,7 @@ Read [README](./README.old.md) to start building.
 - [lean-dojo](https://github.com/lean-dojo/LeanCopilot?tab=readme-ov-file)
 - [goedel-prover](https://goedel-lm.github.io/)
 - [deepseek-prover](https://github.com/deepseek-ai/DeepSeek-Prover-V1.5)
+- [alpha-prover](https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/)
 
 ### Lean4 for STARK/SNARK
 - https://github.com/risc0/risc0-lean4
