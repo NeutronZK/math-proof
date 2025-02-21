@@ -74,3 +74,28 @@ section BitDecomposition
                                       _  = 2^i * 2 - 1 := by omega
                                       _  = 2^(i+1) - 1 := by omega
 end BitDecomposition
+
+----
+-- ! Following is the proof of bit decomposition using vector
+-- open List
+-- open Field
+--
+-- lemma bool_constraint (x: F p) (heq: x * (x - 1) = 0): (x = 0 ∨ x = 1) := by {
+--   cases (eq_zero_or_eq_zero_of_mul_eq_zero heq) with
+--   | inl h0 => simp [h0]
+--   | inr h1 => right; exact (eq_of_sub_eq_zero h1)
+-- }
+
+
+-- def pow_2 {n: ℕ} : Vector ℕ n := Vector.init (fun i : Fin n => 2^(i.val))
+
+
+-- def bit_composition {n: ℕ } (v: Vector (F p) n) : ℕ :=
+--   let v' := v.map (f := fun x => x.val)
+--   let zipped := Vector.zip (pow_2) v'
+--   let mapped := Vector.map (f := fun x => x.fst * x.snd) zipped
+--   mapped.val.sum
+
+
+-- example {n : ℕ} {v : Vector (F p) n} (H : ∀ x, x ∈ v.val → x * (x - 1) = 0) : bit_composition v ≤ 2^n := by
+--   sorry
