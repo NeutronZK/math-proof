@@ -18,3 +18,6 @@ Read [README](./README.old.md) to start building.
 - https://github.com/Verified-zkEVM/clean
 - https://github.com/Verified-zkEVM/ZKLib
 
+### SMT Solver for R1CS
+- [Picus](https://github.com/Veridise/Picus)
+- [export bellpepper cs into circom-r1cs](https://github.com/NovaRollup/Neutron/blob/exp/smt/prover/src/export_r1cs.rs)
